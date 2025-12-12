@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="controls">
+        <a href="index.html" class="back-link">← Back to Home</a>
+        <div class="cell-size-control">
+            <label for="cellWidth">Width (mm):</label>
+            <input type="number" id="cellWidth" value="95" min="1" max="200" step="0.5">
+            <label for="cellHeight">Height (mm):</label>
+            <input type="number" id="cellHeight" value="95" min="1" max="200" step="0.5">
+            <label for="fontSize">Font Size (mm):</label>
+            <input type="number" id="fontSize" value="16.5" min="1" max="50" step="0.5">
+            <label for="yearTitleSize">Year Title Size (mm):</label>
+            <input type="number" id="yearTitleSize" value="70" min="2" max="100" step="0.5">
+            <label for="showYearTitle">
+                <input type="checkbox" id="showYearTitle"> Show Year Title
+            </label>
+            <button id="printButton" class="print-button">Print</button>
+        </div>
+    </div>
+
+    <div id="calendar-container"></div>
+
+    <script src="calendar.js"></script>
+</body>
+</html>

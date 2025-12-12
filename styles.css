@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: white;
+    color: black;
+    padding: 20px;
+}
+
+/* Index page styles */
+.container {
+    max-width: 600px;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.container h1 {
+    margin-bottom: 40px;
+    font-size: 2.5em;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.year-link {
+    display: block;
+    padding: 20px 40px;
+    border: 2px solid black;
+    text-decoration: none;
+    color: black;
+    font-size: 1.5em;
+    transition: background 0.3s;
+    min-width: 300px;
+}
+
+.year-link:hover {
+    background: #f0f0f0;
+}
+
+.custom-year {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.custom-year label {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.custom-year input {
+    width: 200px;
+    padding: 10px;
+    border: 2px solid black;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.custom-year button {
+    padding: 10px 40px;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.custom-year button:hover {
+    background: #f0f0f0;
+}
+
+/* Calendar page styles */
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+.back-link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.cell-size-control {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cell-size-control label {
+    font-weight: bold;
+}
+
+.cell-size-control input[type="number"] {
+    width: 80px;
+    padding: 5px;
+    border: 1px solid black;
+    font-size: 1em;
+}
+
+.cell-size-control input[type="checkbox"] {
+    cursor: pointer;
+}
+
+.print-button {
+    padding: 5px 20px;
+    border: 2px solid black;
+    background: white;
+    color: black;
+    font-size: 1em;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.print-button:hover {
+    background: #f0f0f0;
+}
+
+#calendar-container {
+    margin-top: 20px;
+}
+
+.year-title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.year-title.hidden {
+    display: none;
+}
+
+.header-row {
+    display: flex;
+    margin-bottom: 0;
+    align-items: stretch;
+}
+
+.day-header {
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    background: white;
+    padding: 10px 5px;
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.month-row {
+    display: flex;
+    margin-bottom: 0;
+    align-items: stretch;
+}
+
+.month-name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 10px;
+    font-weight: bold;
+    border: 1px solid black;
+    background: white;
+    min-width: 120px;
+}
+
+.days-grid {
+    display: flex;
+    flex-wrap: nowrap;
+    flex: 1;
+}
+
+.day-cell {
+    border: 1px solid black;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    background: white;
+    flex-shrink: 0;
+    padding: 2px 4px;
+}
+
+.day-cell.empty {
+    background: white;
+}
+
+.day-cell.weekend,
+.day-header.weekend {
+    background: #e0e0e0;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+}
+
+/* Print styles */
+@page {
+    size: A0 landscape;
+    margin: 10mm;
+}
+
+@media print {
+    .controls {
+        display: none;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 100vh;
+        padding: 10mm;
+        margin: 0;
+    }
+
+    .header-row {
+        page-break-inside: avoid;
+        page-break-after: avoid;
+    }
+
+    .month-row {
+        page-break-inside: avoid;
+    }
+}

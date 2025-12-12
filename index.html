@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Year Planner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Year Planner</h1>
+        <div class="links">
+            <a href="calendar.html?year=current" class="year-link">Current Year</a>
+            <a href="calendar.html?year=next" class="year-link">Next Year</a>
+        </div>
+        <div class="custom-year">
+            <label for="customYear">Or enter a year:</label>
+            <input type="number" id="customYear" min="1" max="9999" placeholder="e.g., 2025">
+            <button id="goButton">Go</button>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

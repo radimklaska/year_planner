@@ -34,7 +34,7 @@ All settings are saved automatically and remembered between sessions:
 
 ## Live Demo
 
-Visit: `https://radimklaska.github.io/year_planner/`
+Visit: `https://year-planner.klaska.net/`
 
 ## Usage
 

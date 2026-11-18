@@ -1,0 +1,17 @@
+# Files in the repo that are not part of the site (Workers static assets upload).
+.git
+.github
+.gitignore
+.assetsignore
+.wrangler
+node_modules
+tests
+README.md
+wrangler.jsonc
+package.json
+package-lock.json
+playwright.config.mjs
+test-results
+playwright-report
+visual-diffs
+CLAUDE.md

@@ -9,7 +9,7 @@ A browser-based year calendar generator designed for large-scale printing. The a
 ## Technology Stack
 
 - Pure HTML, CSS, and JavaScript (no frameworks or build tools)
-- Hosted on GitHub Pages (static site)
+- Hosted on Cloudflare as an assets-only Worker (static site, `wrangler.jsonc`; see README "Deployment")
 - localStorage for persisting user preferences
 
 ## Development
@@ -23,8 +23,9 @@ Simply open `index.html` in a web browser. No build process or local server requ
 - `calendar.html` - Calendar display page with controls
 - `calendar.js` - Calendar generation logic and settings management
 - `styles.css` - All styling (includes print media queries and @page rules)
-- `.nojekyll` - Prevents GitHub Pages from using Jekyll processing
-- `README.md` - Deployment instructions
+- `README.md` - Deployment notes
+- `wrangler.jsonc`, `.assetsignore` - Cloudflare Worker config; `.assetsignore` lists repo files that are not part of the site (add new non-site files there)
+- `.github/workflows/deploy.yml`, `tests/visual.spec.mjs` - deploy, PR previews, visual regression
 
 ## Architecture
 

@@ -34,7 +34,7 @@ All settings are saved automatically and remembered between sessions:
 
 ## Live Demo
 
-Visit: `https://radimklaska.github.io/year_planner/`
+Visit: `https://year-planner.klaska.net/`
 
 ## Usage
 
@@ -70,32 +70,27 @@ No build process required! Simply:
 2. Open `index.html` in a web browser
 3. Make changes and refresh to see them
 
-## Deployment to GitHub Pages
+## Deployment
 
-1. Push your code to GitHub:
-   ```bash
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git push -u origin main
-   ```
+Hosted on Cloudflare as an assets-only Worker (`wrangler.jsonc`, Worker `year-planner`,
+custom domain `year-planner.klaska.net`). The site is the repo root; `.assetsignore` keeps the README,
+tests and tooling out of the upload.
 
-2. Enable GitHub Pages:
-   - Go to repository Settings
-   - Navigate to "Pages" section
-   - Under "Source", select "Deploy from a branch"
-   - Select "main" branch and "/ (root)" folder
-   - Click "Save"
+`.github/workflows/deploy.yml` deploys every push to `main`. Every pull request gets a
+`workers.dev` preview (`wrangler preview`, linked in a PR comment, deleted when the PR is
+closed) and a visual regression check of the preview against production
+(`tests/visual.spec.mjs`; a PR that changes how a page looks fails it by design, so check
+the `visual-diffs` artifact). Repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 
-3. Your calendar will be available at:
-   `https://YOUR_USERNAME.github.io/year_planner/`
+By hand: `npm ci && npx wrangler deploy`. Locally: `npx wrangler dev`. The visual check:
+`PREVIEW_URL=<url> npx playwright test`.
 
 ## Technology Stack
 
 - Pure HTML, CSS, and JavaScript
 - No frameworks or dependencies
 - localStorage for settings persistence
-- Hosted as a static site on GitHub Pages
+- Hosted as a static site on Cloudflare (assets-only Worker)
 
 ## Browser Compatibility
 

@@ -76,11 +76,13 @@ Hosted on Cloudflare as an assets-only Worker (`wrangler.jsonc`, Worker `year-pl
 custom domain `year-planner.klaska.net`). The site is the repo root; `.assetsignore` keeps the README,
 tests and tooling out of the upload.
 
-`.github/workflows/deploy.yml` deploys every push to `main`. Every pull request gets a
-`workers.dev` preview (`wrangler preview`, linked in a PR comment, deleted when the PR is
-closed) and a visual regression check of the preview against production
-(`tests/visual.spec.mjs`; a PR that changes how a page looks fails it by design, so check
-the `visual-diffs` artifact). Repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
+`.github/workflows/deploy.yml` deploys every push to `main` (a manual "Run workflow" deploys
+only from `main`). Every pull request gets a `workers.dev` preview (`wrangler preview`),
+linked in a new PR comment per deploy with a QR code for phones, Lighthouse scores and a
+visual regression check of the preview against production (`tests/visual.spec.mjs`; a PR
+that changes how a page looks fails it by design, and the comment links a page with the
+differences). The preview is deleted when the PR is closed. Same setup as
+https://cfsite.klaska.net. Repo secrets: `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID`.
 
 By hand: `npm ci && npx wrangler deploy`. Locally: `npx wrangler dev`. The visual check:
 `PREVIEW_URL=<url> npx playwright test`.

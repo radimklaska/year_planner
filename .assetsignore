@@ -15,3 +15,9 @@ test-results
 playwright-report
 visual-diffs
 CLAUDE.md
+visual-results
+visual-report
+lighthouse
+preview.out
+preview.err
+preview.json

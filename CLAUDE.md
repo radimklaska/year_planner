@@ -25,7 +25,7 @@ Simply open `index.html` in a web browser. No build process or local server requ
 - `styles.css` - All styling (includes print media queries and @page rules)
 - `README.md` - Deployment notes
 - `wrangler.jsonc`, `.assetsignore` - Cloudflare Worker config; `.assetsignore` lists repo files that are not part of the site (add new non-site files there)
-- `.github/workflows/deploy.yml`, `tests/visual.spec.mjs` - deploy, PR previews, visual regression
+- `.github/workflows/deploy.yml`, `tests/visual.spec.mjs`, `tests/visual-report.mjs` - deploy, PR previews (comment with QR code, Visual and Lighthouse rows), visual regression, Lighthouse; same setup as https://cfsite.klaska.net, copy improvements from there
 
 ## Architecture
 
